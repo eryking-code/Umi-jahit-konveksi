@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
   <meta name="description" content="NENE ABAH KONVEKSI melayani seragam perusahaan, apparel komunitas, fashion brand, produksi skala besar, dan kaos custom Essential Fit. Konsultasi mudah via WhatsApp.">
-  <meta name="theme-color" content="#0a2740">
+  <meta name="theme-color" content="#082f82">
   <link rel="icon" href="img0.jpg">
   <title>NENE ABAH KONVEKSI — Umi Jahit</title>
   <style>
@@ -13,38 +13,54 @@
 
     :root{
       color-scheme:light dark;
-      --ink:#10273a;
-      --muted:#607181;
-      --paper:#f6f8fa;
+      --ink:#102044;
+      --muted:#5f6f8c;
+      --paper:#f6f8ff;
       --surface:#ffffff;
-      --surface-soft:#edf2f5;
-      --navy:#0a2740;
-      --navy-2:#123f61;
-      --gold:#e2ad3d;
-      --gold-soft:#fff0c8;
-      --line:#dbe4ea;
+      --surface-soft:#edf3ff;
+      --navy:#082f82;
+      --navy-2:#0b47c6;
+      --gold:#d99a16;
+      --gold-soft:#fff0bd;
+      --line:#d8e2f3;
       --white:#ffffff;
       --wa:#117c49;
-      --shadow:0 24px 70px rgba(10,39,64,.12);
-      --shadow-soft:0 12px 34px rgba(10,39,64,.08);
+      --shadow:0 24px 70px rgba(8,47,130,.13);
+      --shadow-soft:0 12px 34px rgba(8,47,130,.09);
     }
     @media(prefers-color-scheme:dark){
-      :root{
-        --ink:#edf5f9;
-        --muted:#aabac5;
-        --paper:#071622;
-        --surface:#0c2232;
-        --surface-soft:#122c3e;
-        --navy:#061a2a;
-        --navy-2:#174969;
-        --gold:#e6b853;
-        --gold-soft:#5b4723;
-        --line:#244154;
-        --white:#f8fbfd;
+      :root:not([data-theme="light"]){
+        --ink:#f0f4ff;
+        --muted:#b3bfd8;
+        --paper:#071126;
+        --surface:#0d1a35;
+        --surface-soft:#132343;
+        --navy:#061b52;
+        --navy-2:#79a4ff;
+        --gold:#e5ad2b;
+        --gold-soft:#47391b;
+        --line:#24385f;
+        --white:#ffffff;
         --wa:#31a969;
-        --shadow:0 24px 70px rgba(0,0,0,.3);
-        --shadow-soft:0 12px 34px rgba(0,0,0,.2);
+        --shadow:0 24px 70px rgba(0,0,0,.34);
+        --shadow-soft:0 12px 34px rgba(0,0,0,.24);
       }
+    }
+    :root[data-theme="dark"]{
+      --ink:#f0f4ff;
+      --muted:#b3bfd8;
+      --paper:#071126;
+      --surface:#0d1a35;
+      --surface-soft:#132343;
+      --navy:#061b52;
+      --navy-2:#79a4ff;
+      --gold:#e5ad2b;
+      --gold-soft:#47391b;
+      --line:#24385f;
+      --white:#ffffff;
+      --wa:#31a969;
+      --shadow:0 24px 70px rgba(0,0,0,.34);
+      --shadow-soft:0 12px 34px rgba(0,0,0,.24);
     }
 
     *{box-sizing:border-box}
@@ -61,10 +77,21 @@
     .nav-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
     .brand-logo{display:inline-flex;align-items:center;flex:0 0 auto;text-decoration:none}
     .brand-logo img{display:block;width:132px;height:58px;object-fit:contain;mix-blend-mode:multiply}
-    @media(prefers-color-scheme:dark){.brand-logo img{mix-blend-mode:normal;background:#fff;border-radius:7px;padding:3px}}
+    @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand-logo img{mix-blend-mode:normal;background:#fff;border-radius:7px;padding:3px}}
+    :root[data-theme="dark"] .brand-logo img{mix-blend-mode:normal;background:#fff;border-radius:7px;padding:3px}
     .links{display:flex;align-items:center;gap:24px;font-size:.88rem;font-weight:700}
     .links>a:not(.btn){text-decoration:none;color:var(--muted);transition:color .2s ease}
     .links>a:not(.btn):hover{color:var(--ink)}
+    .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 13px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--ink);font-weight:800;cursor:pointer;box-shadow:var(--shadow-soft);transition:border-color .2s ease,background-color .2s ease}
+    .theme-toggle:hover{border-color:var(--gold)}
+    .theme-toggle:focus-visible{outline:3px solid color-mix(in srgb,var(--gold) 55%,transparent);outline-offset:3px}
+    .theme-toggle svg{width:18px;height:18px}
+    .theme-icon-sun{display:none}
+    @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme-icon-sun{display:block}:root:not([data-theme="light"]) .theme-icon-moon{display:none}}
+    :root[data-theme="dark"] .theme-icon-sun{display:block}
+    :root[data-theme="dark"] .theme-icon-moon{display:none}
+    :root[data-theme="light"] .theme-icon-sun{display:none}
+    :root[data-theme="light"] .theme-icon-moon{display:block}
 
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;border-radius:10px;text-decoration:none;font-weight:800;border:1px solid transparent;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
     .btn:hover{transform:translateY(-2px)}
@@ -224,6 +251,7 @@
     @media(max-width:780px){
       .nav-inner{justify-content:space-between}
       .brand-logo img{width:106px;height:50px}
+      .links{gap:10px}
       .links>a:not(.nav-cta){display:none}
       .hero-grid,.section-intro,.process-grid,.size-grid,.about-grid,.faq-grid,.cta{grid-template-columns:1fr}
       .hero-grid{padding-block:60px 70px;min-height:auto}
@@ -252,8 +280,10 @@
     }
     @media(max-width:540px){
       .wrap{width:min(100% - 26px,1180px)}
-      .nav-inner{min-height:64px}
-      .nav-cta{min-height:44px;padding:0 15px;font-size:.82rem}
+      .nav-inner{min-height:64px;gap:10px}
+      .nav-cta{min-height:44px;padding:0 12px;font-size:.78rem}
+      .theme-toggle{width:44px;padding:0}
+      .theme-label{display:none}
       .hero h1{font-size:clamp(2.75rem,14vw,4.2rem)}
       .hero-actions .btn{width:100%}
       .hero-foot{display:grid;grid-template-columns:1fr 1fr;text-align:left;gap:12px}
@@ -298,6 +328,11 @@
       <a href="#cara-pesan">Cara pesan</a>
       <a href="#ukuran">Ukuran</a>
       <a href="#tentang">Tentang</a>
+      <button class="theme-toggle" type="button" aria-label="Ganti ke mode malam" aria-pressed="false">
+        <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 15.2A8 8 0 0 1 8.8 4 8.1 8.1 0 1 0 20 15.2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span class="theme-label">Mode malam</span>
+      </button>
       <a class="btn btn-wa nav-cta" href="https://wa.me/6285126358415?text=Halo%20Umi%20Jahit%2C%20saya%20ingin%20konsultasi%20pesanan%20konveksi." target="_blank" rel="noopener">Konsultasi gratis</a>
     </div>
   </div>
@@ -349,7 +384,6 @@
           <div class="product-gallery product-gallery-single" aria-label="Galeri ilustrasi Seragam Sekolah Custom">
             <div class="photo-slot">
               <img src="img3.jpg" alt="Ilustrasi AI kemeja putih dan celana biru dongker untuk seragam sekolah">
-              <small>Ilustrasi AI · Seragam sekolah</small>
             </div>
           </div>
           <div class="product-body">
@@ -365,11 +399,9 @@
           <div class="product-gallery product-gallery-two" aria-label="Galeri ilustrasi Kaos Custom Essential Fit">
             <div class="photo-slot">
               <img src="img4.jpg" alt="Ilustrasi AI kaos Essential Fit warna putih">
-              <small>Ilustrasi AI · Kaos putih</small>
             </div>
             <div class="photo-slot photo-slot-detail">
               <img src="img5.jpg" alt="Ilustrasi AI kaos Essential Fit warna navy">
-              <small>Ilustrasi AI · Kaos navy</small>
             </div>
           </div>
           <div class="product-body">
@@ -394,7 +426,6 @@
       <div class="audience-feature">
         <figure>
           <img src="img6.jpg" alt="Ilustrasi AI kemeja PDH warna krem untuk angkatan atau komunitas">
-          <figcaption>Ilustrasi AI · Kemeja PDH</figcaption>
         </figure>
         <div class="audience-feature-copy">
           <span class="label">PDH &amp; SERAGAM KOMUNITAS</span>
@@ -513,5 +544,33 @@
   <div class="wrap footer-inner"><span>NENE ABAH KONVEKSI · Umi Jahit · Hasil rapi, hati tenang</span><span>WhatsApp 0851 2635 8415 · Instagram @neneabah_</span></div>
 </footer>
 <a class="float-wa" href="https://wa.me/6285126358415?text=Halo%20Umi%20Jahit%2C%20saya%20ingin%20konsultasi%20pesanan%20konveksi." target="_blank" rel="noopener" aria-label="Hubungi Umi Jahit via WhatsApp"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.7a8 8 0 0 1-11.8 7l-4.2 1.1 1.1-4A8 8 0 1 1 20 11.7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c.4 2.6 1.9 4.1 4.6 4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>WhatsApp</span></a>
+<script>
+  (function(){
+    var root=document.documentElement;
+    var button=document.querySelector('.theme-toggle');
+    var label=document.querySelector('.theme-label');
+    var themeMeta=document.querySelector('meta[name="theme-color"]');
+    var systemDark=window.matchMedia('(prefers-color-scheme: dark)');
+
+    function currentTheme(){
+      return root.getAttribute('data-theme') || (systemDark.matches ? 'dark' : 'light');
+    }
+
+    function updateControl(){
+      var dark=currentTheme()==='dark';
+      button.setAttribute('aria-pressed',dark ? 'true' : 'false');
+      button.setAttribute('aria-label',dark ? 'Ganti ke mode terang' : 'Ganti ke mode malam');
+      label.textContent=dark ? 'Mode terang' : 'Mode malam';
+      themeMeta.setAttribute('content',dark ? '#061b52' : '#082f82');
+    }
+
+    button.addEventListener('click',function(){
+      root.setAttribute('data-theme',currentTheme()==='dark' ? 'light' : 'dark');
+      updateControl();
+    });
+    if(systemDark.addEventListener){systemDark.addEventListener('change',updateControl)}
+    updateControl();
+  }());
+</script>
 </body>
 </html>
